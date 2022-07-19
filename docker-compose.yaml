@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  database:
+    container_name: database
+    image: postgres:11-alpine
+    tty: true
+    ports:
+      - '9999:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /tmp
+    volumes:
+      - db-data:/var/lib/postgresql
+    networks:
+      - backend
+    restart: unless-stopped
+  test-database:
+    container_name: test-database
+    image: postgres:11-alpine
+    tty: true
+    ports:
+      - '8888:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /tmp
+    volumes:
+      - db-data:/var/lib/postgresql
+    networks:
+      - backend
+    restart: unless-stopped
+networks:
+  backend:
+    name: backend
+    driver: bridge
+volumes:
+  db-data:
+    name: database
+    driver: local
