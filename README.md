@@ -9,8 +9,8 @@ TDD & BDD demonstation using a simple mining project.
 Description | Method | Endpoint | Data | Response
 --- | --- | --- | --- | ---
 Create a new registry entry | POST | `/registry` | { payload: String } | 201 (Created) => { id: String, payload: String, hash: String, createdAt: Date } <br/> 400 (Bad Request) => { message: String, description: { field: String, message: String } }
-Read existing registry entry | GET | `/registry/:id` | None | 200 (OK) => { id: String, payload: String, hash: String, createdAt: Date } <br/> 404 (Not Found) => { message: String, description: { field: String, message: String } }
-Request for mining | POST | `/mine` | None | 201 (Created) => { endTime: Date, nonce: Number, hash: String, createdAt: Date }
+Read existing registry entry | GET | `/registry/:id` | None | 200 (OK) => { id: String, payload: String, hash: String, createdAt: Date } <br /> 404 (Not Found) => { message: String, description: { field: String, message: String } }
+Request for mining | POST | `/mine` | { endTime: Date } | 201 (Created) => { endTime: Date, nonce: Number, hash: String, createdAt: Date } <br /> 410 (Gone) => { message: String, description: { field: String, message: String } } <br /> 425 (Too Early) => { message: String, description: { field: String, message: String } }
 
 ### 1.2. Models
 
@@ -28,10 +28,9 @@ updatedAt | TIMESTAMP | NO | NOW() |
 
 Field | Datatype | Nulable | Default | Constraint
 --- | --- | --- | --- | ---
-id | UUID | NO | NULL | PRIMARY
 endTime | TIMESTAMP | NO | NULL | 
 nonce | NUMBER | NO | NULL | 
-hash | CHAR(64) | NO | NULL | 
+hash | CHAR(64) | NO | NULL | PRIMARY
 createdAt | TIMESTAMP | NO | NOW() | 
 updatedAt | TIMESTAMP | NO | NOW() | 
 
