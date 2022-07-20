@@ -4,8 +4,10 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
+    "coverage": "npx nyc --reporter=html npm run test",
     "dev": "npx nodemon --watch . --ignore tests/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test npx mocha tests \"tests/**/*.spec.js\" --recursive",
+    "test:bail:watch": "NODE_ENV=test npx mocha tests \"tests/**/*.spec.js\" --recursive --bail --watch"
   },
   "author": "",
   "license": "ISC",
@@ -16,11 +18,17 @@
     "sequelize": "^6.21.3"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^8.20.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.1"
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
+    "prettier": "^2.7.1",
+    "sinon": "^14.0.0"
   }
 }
