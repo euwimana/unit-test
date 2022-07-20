@@ -1,5 +1,4 @@
 module.exports = {
-  database: {
-    port: 8888,
-  },
+  app: { env: "test" },
+  database: { port: 8888 },
 };

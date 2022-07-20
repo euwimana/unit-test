@@ -39,3 +39,25 @@ updatedAt | TIMESTAMP | NO | NOW() |
 - Each blockchain entry must have a hash that corresponds to 10+ last registry entry plus last blockchain entry and nonce (∑(entries) + Last Hash + Nonce)
   - The resulting hash must end with a predefined number of zeros
   - New hash should start from endTime (excluded)
+
+## 2. INIT Project
+Initialized project and installed basic packages:
+- config
+- express
+- pg
+- sequelize
+
+## 3. TDD
+Added testing packages:
+- chai
+- chai-as-promised
+- @faker-js/faker
+- mocha
+- nyc
+- sinon
+
+Tasks
+
+- Creating HashString
+- Creating Register
+- Creating Blockchain
