@@ -61,3 +61,13 @@ Tasks
 - Creating HashString
 - Creating Register
 - Creating Blockchain
+
+## 4. BDD
+Added additional testing packages:
+- supertest
+
+Tasks
+
+- Creating `POST /registry`
+- Creating `GET /registry:id`
+- Creating `POST /mine`
