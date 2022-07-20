@@ -71,3 +71,13 @@ Tasks
 - Creating `POST /registry`
 - Creating `GET /registry:id`
 - Creating `POST /mine`
+
+## 5. Final
+Added more package for parsing request body (should have been added in 4):
+- body-parser
+
+Tasks
+
+- Create Migrations
+- Migrate DB
+- Live test
