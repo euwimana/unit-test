@@ -1,7 +1,9 @@
 module.exports = {
   app: {
-    port: 3000,
+    challenge: "0000$",
     env: "development",
+    minRegistry: 10,
+    port: 3000,
   },
   database: {
     host: "localhost",

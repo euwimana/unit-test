@@ -1,6 +1,8 @@
 module.exports = {
   app: {
+    challenge: "CHALLENGE",
     port: "PORT",
+    minRegistry: "MIN_REGISTRY",
   },
   database: {
     host: "DB_HOST",
