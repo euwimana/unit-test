@@ -36,7 +36,9 @@ class MineController {
             order: [["createdAt", "DESC"]],
           });
           const where = { [Op.lte]: endTime };
+          let initHash = "";
           if (lastBlockchain) {
+            initHash = lastBlockchain.hash;
             if (new Date(endTime) <= lastBlockchain.endTime) {
               throw new GoneException("Gone", {
                 field: "endTime",
@@ -60,7 +62,7 @@ class MineController {
 
           const payload = registries.reduce(
             (prev, { hash }) => prev + hash,
-            ""
+            initHash
           );
 
           const { nonce, hash } = await Mine(payload, challenge);
